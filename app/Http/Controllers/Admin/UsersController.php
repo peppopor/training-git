@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\User  as  UserMod;
+use App\Model\Shop  as  ShopMod;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,42 +12,65 @@ use App\Http\Controllers\Controller;
 class UsersController extends Controller
 {
     public function index()
+  {
+    $mods = UserMod::paginate(5);
+    return view('admin.user.lists', compact('mods') );
+  }
+
+
+
+    public function store(Request $request)
     {
-        // $mods  = UserMod::where('active', 1)->first()
-        //        ->where('city','bangkok')
-        //        ->orderBy('name', 'desc')
-        //        ->take(10)
-        //        ->get();
-        $mods = UserMod::find([1, 2, 3]);
-           foreach ($mods as $item) {
-            echo $item->name . "<br>";
-        }
-
         
+            $mods = UserMod::all();
 
-        
-        // // Using alias name
-        // //$mods = UserMod::all();
-
-        // foreach ($mods as $item) {
-        //     echo $item->name . "  " . $item->surname . "  " . $item->age ;
-        //     echo "<br>";
-        
+            return view('admin.user.create', compact('mods'));
+       
     }
 
-    public function show($id)
+
+     public function create()
     {
-        $mod = UserMod::find(1);
-         echo $mods->name . "  " . $mods->surname . "  " . $mods->age ;
+        
+            $roles = UserMod::all();
+
+            return view('admin.user.create',compact('roles'));
+       
     }
+
+
+
 
     //  public function store(Request $request)
     // {
     //     // Validate the request...
  
-    //     $mod = new User;
+    //     $mod = new UserMod;
     //     $mod->name = $request->name;
+    //     $mod->password = bcrypt($request->password);
+    //     $mod->email = $request->email;
     //     $mod->save();
     // }
+
+    public function update(Request $request, $id)
+    {
+        $mod = UserMod::find($id);
+        $mod->name = $request->name;
+        $mod->password = bcrypt($request->password);
+        $mod->email = $request->email;
+        $mod->save();
+        echo "Update DONE";
+    }
+
+     public function destroy($id)
+    {
+         $mod = UserMod::find($id);
+         $mod->delete();
+         echo "Delete DONE";
+    }
+
+
+    
+
 
 }

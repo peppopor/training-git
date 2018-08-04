@@ -12,16 +12,8 @@ class DatabaseSeeder extends Seeder
      */
    public function run()
     {
-          $cities = array("bangkok", "nakornpathom");
-
-          for($i=1; $i<=100; $i++) {
-          DB::table('shops')->insert([
-                'user_id'   => $i,
-                'name'      => 'ShopID:'.$i.'-UserID:'.$i,
-                'desc'      => 'desc',
-           ]);
-          }
-
+          $this->call(UsersTableSeeder::class);
+          $this->call(ShopsTableSeeder::class);
     }
 
 }

@@ -87,6 +87,15 @@ Route::resources([
 //     'create', 'store', 'update', 'destroy'
 // ]);
 
+Route::get('login', 'LoginController@index');
+Route::get('logout', 'LoginController@logout');
+Route::post('login', 'LoginController@authenticate');
+
+
+//Route::resource('admin/user', 'Admin\UsersController');
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::resource('user', 'Admin\UsersController');
+});
 
 
 Route::any('por', 'BlogController@myaction');
