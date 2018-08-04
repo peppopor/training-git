@@ -19,7 +19,7 @@ class UsersController extends Controller
         //        ->get();
         $mods = UserMod::find([1, 2, 3]);
            foreach ($mods as $item) {
-            echo $item->name;
+            echo $item->name . "<br>";
         }
 
         

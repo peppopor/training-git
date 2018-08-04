@@ -79,13 +79,13 @@ Route::resources([
     'posts' => 'PostController'
 ]);
 
-Route::resource('photos', 'PhotoController')->only([
-    'index', 'show'
-]);
+// Route::resource('photos', 'PhotoController')->only([
+//     'index', 'show'
+// ]);
 
-Route::resource('photos', 'PhotoController')->except([
-    'create', 'store', 'update', 'destroy'
-]);
+// Route::resource('photos', 'PhotoController')->except([
+//     'create', 'store', 'update', 'destroy'
+// ]);
 
 
 
