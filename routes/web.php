@@ -87,19 +87,25 @@ Route::resources([
 //     'create', 'store', 'update', 'destroy'
 // ]);
 
-Route::get('login', 'LoginController@index');
+Route::get('login', 'LoginController@index')->name('login');
 Route::get('logout', 'LoginController@logout');
 Route::post('login', 'LoginController@authenticate');
-
-
 //Route::resource('admin/user', 'Admin\UsersController');
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('user', 'Admin\UsersController');
+    Route::resource('users', 'Admin\UsersController');
+    Route::get('demoone', 'DemoController@index');
 });
+Route::get('testexcel','DemoController@testexcel');
 
 
 Route::any('por', 'BlogController@myaction');
 
-
 Route::resource('admin/users', 'Admin\UsersController');
+Route::get('testlinenoti', 'DemoController@testlinenoti');
+
+Route::get('testexcel', 'DemoController@testexcel');
+
+Route::resource('products', 'Api\ProductController');
+
+
 

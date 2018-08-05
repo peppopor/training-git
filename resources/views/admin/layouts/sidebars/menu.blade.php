@@ -1,12 +1,12 @@
 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
   <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{{ url('admin/users') }}">
       <i class="fa fa-fw fa-dashboard"></i>
-      <span class="nav-link-text">Dashboard</span>
+      <span class="nav-link-text">Users</span>
     </a>
   </li>
 
-  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+  <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
     <a class="nav-link" href="charts.html">
       <i class="fa fa-fw fa-area-chart"></i>
       <span class="nav-link-text">Charts</span>
@@ -26,7 +26,7 @@
         <a href="cards.html">Cards</a>
       </li>
     </ul>
-  </li>
+  </li> -->
 </ul>
 
 

@@ -13,7 +13,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        return "index : List Table";
+        return 'Index';
     }
 
     /**
@@ -23,7 +23,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        return "Create : List Table";
+        return 'create';
     }
 
     /**
@@ -34,9 +34,9 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        return "Store : Hello world" ;
-
-     }
+        echo 'store';
+        dd($request);
+    }
 
     /**
      * Display the specified resource.
@@ -46,7 +46,7 @@ class PhotoController extends Controller
      */
     public function show($id)
     {
-        return "SHOW ID :: $id "; 
+        return 'show :'.$id;
     }
 
     /**
@@ -57,7 +57,7 @@ class PhotoController extends Controller
      */
     public function edit($id)
     {
-        return "SHOW EDIT ID :: $id "; 
+        return 'edit :'.$id;
     }
 
     /**
@@ -69,8 +69,8 @@ class PhotoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        echo 'update :'.$id;
         dd($request);
-         return "SHOW UPDATE ID :: $id "; 
     }
 
     /**
@@ -81,6 +81,6 @@ class PhotoController extends Controller
      */
     public function destroy($id)
     {
-        return "SHOW DELETE ID :: $id "; 
+        return 'destroy :'.$id;
     }
 }
